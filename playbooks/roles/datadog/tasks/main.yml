@@ -22,3 +22,24 @@
 - name: Install datadog Agent
   include_role:
     name: datadog.datadog
+- name: Configure Datadog MongoDB check
+  copy:
+    content: |
+      init_config:
+        service: edx-mongodb
+      instances:
+      - hosts:
+          - "127.0.0.1:27018"
+        username: "{{ datadog_mongo_username | default('admin') }}"
+        password: "{{ datadog_mongo_password | default('password') }}"
+      logs:
+      - type: file
+        path: /edx/var/log/mongo/mongodb.log
+        source: mongodb
+        start_position: beginning
+    dest: /etc/datadog-agent/conf.d/mongo.d/conf.yaml
+  when: (datadog_mongo_check | default(false))
+- name: Restart Datadog Agent
+  service:
+    name: datadog-agent
+    state: restarted
