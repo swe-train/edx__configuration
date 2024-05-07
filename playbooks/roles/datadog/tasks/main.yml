@@ -29,7 +29,7 @@
         service: edx-mongodb
       instances:
       - hosts:
-          - "127.0.0.1:27018"
+          - "127.0.0.1:27017"
         username: "{{ datadog_mongo_username | default('admin') }}"
         password: "{{ datadog_mongo_password | default('password') }}"
       logs:
@@ -39,7 +39,3 @@
         start_position: beginning
     dest: /etc/datadog-agent/conf.d/mongo.d/conf.yaml
   when: (datadog_mongo_check | default(false))
-- name: Restart Datadog Agent
-  service:
-    name: datadog-agent
-    state: restarted
