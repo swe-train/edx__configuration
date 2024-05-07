@@ -1,33 +1,13 @@
 Configuration Management
 ########################
 
-DEPRECATION WARNING
-*******************
-
-This repository is Deprecated and is planned to be archived after the Redwood
-Cut (Late April 2024). See https://github.com/openedx/public-engineering/issues/51
-for more details and up-to-date information.
 
 Description
 ***********
 
-This repository is a collection of tools and scripts that edx.org uses to deploy
-openedx. The purpose of this repository is to share portions of our toolchain
-with the community. This repository is *not* the best way to get started running
-openedx. For that, please look at `Open EdX Installation options`_, which contains
-links to the recommended paths for new installations.
-
-**Important**: The Open edX configuration scripts need to be run as root on
-your servers and will make changes to service configurations including, but not
-limited to, sshd, dhclient, sudo, apparmor and syslogd. Our scripts are made
-available as we use them and they implement our best practices. We strongly
-recommend that you review everything that these scripts will do before running
-them against your servers. We also recommend against running them against
-servers that are hosting other applications. No warranty is expressed or
-implied.
-
-For more information including installation instructions please see the `OpenEdX
-Wiki`_.
+A collection of configuration scripts using Ansible for deploying edx.org.
+This is not meant for general Open edX deployment and use. View the
+`Open EdX Installation options`_ page for recommended deployment options.
 
 For info on any large recent changes please see the `change log`_.
 
@@ -75,5 +55,4 @@ Contributing
 
 .. _Open EdX Installation options: https://open.edx.org/installation-options
 .. _Ansible: http://ansible.com/
-.. _OpenEdX Wiki: https://openedx.atlassian.net/wiki/display/OpenOPS/Open+edX+Operations+Home
 .. _change log: https://github.com/openedx/configuration/blob/master/CHANGELOG.md
